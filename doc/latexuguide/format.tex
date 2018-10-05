@@ -16,7 +16,7 @@ separators outside \{...\} enclosures.
 Blank input lines do not affect program execution. 
 
 The input is not case sensitive except for strings enclosed in double
-quotes (" "). 
+quotes (`` ''). 
 
 The input file consists of a sequence of statements. 
 A statement may occupy any number of input lines. 
@@ -124,11 +124,11 @@ simply entering \texttt{EXEC label;}. This construct may be nested.
 \section{Variable Declarations}
 \label{subsec:var_declarations}
 
-In the following, "=" means that the variable on the left receives the
+In the following, ``='' means that the variable on the left receives the
 current value of the expression on the right, but does not depend on it
-any further, whereas ":=" makes the variable on the left depend on the
+any further, whereas ``:='' makes the variable on the left depend on the
 expression on the right, \textsl{i.e.} every time the expression
-changes, the variable is re-evaluated, except for "const" variables.
+changes, the variable is re-evaluated, except for ``const'' variables.
 
 \madxmp{
 var = expression; \\
@@ -236,7 +236,7 @@ SYSTEM, "ln -fns some-lengthy-directory-name local-link";
 \section{Logical Attributes}
 \label{sec:logical}
 Many commands in \madx require the setting of logical values (flags) to
-represent the on/off state of an option. A logical value "flag" can be
+represent the on/off state of an option. A logical value ``flag'' can be
 set in two ways:  
 \madxmp{flag | flag = true}
 
@@ -261,7 +261,7 @@ In this case, a litteral integer is requested; however, in the following
 \madxmp{rfc: RFCAVITY, HARMON = 12345;}
 or 
 \madxmp{rfc: RFCAVITY, HARMON = num;}
-"num" may be an integer variable, a real variable, or an expression.  In
+``num'' may be an integer variable, a real variable, or an expression.  In
 the two latter cases, the value is truncated. 
 
 
@@ -346,7 +346,7 @@ An expression can be formed using the following operators:
   standard deviation, truncated at x standard deviations;  
 \end{madlist}
 
-in the above cases, "x" can be any expression, i.e. contain other
+in the above cases, ``x'' can be any expression, i.e. contain other
 functions, variable or constant expressions. To initialize the \madx
 random generator use the \hyperref[sec:eoption]{\texttt{EOPTION}} or  \hyperref[sec:coption]{\texttt{COPTION}} commands. Note that the command \hyperref[sec:track]{\texttt{TRACK}} with \texttt{QUANTUM} attribute set to true may set or reset the seed too. 
 
@@ -373,43 +373,43 @@ while (i <= 10) {
 
 \begin{madlist}
   \ttitem{TABLE(x,z)} identical to TABLE(x,z,1); example: table(summ,q1) returns the hor. tune of
-  the Twiss summary table "summ".
+  the Twiss summary table ``summ''.
 
-  \ttitem{TABLE(x,y,z)} accesses value of the named table column "z"
-  for element "y" (first table row with that name) of table "x";
+  \ttitem{TABLE(x,y,z)} accesses value of the named table column ``z''
+  for element ``y'' (first table row with that name) of table ``x'';
   example: table(twiss,mb.12,betx) returns the beta\_x at
-  element mb.12 from the Twiss table "twiss".   When the element
+  element mb.12 from the Twiss table ``twiss''.   When the element
   is called with its proper name, as in the example above, the
   value is returned at the first occurrence of the element of
   this name. If the value is needed at an occurrence number: NNN,
-  then "[NNN]" has to be appended to the name, e.g. in the above
+  then ``[NNN]'' has to be appended to the name, e.g. in the above
   example one obtains the betx of the 23th occurrence of the
-  element "mb.12" by changing the example to:
-  "table(twiss,mb.12[23],betx)". Mind you that the old, but
-  little known, form: "table(twiss,mb.12-\textgreater 23,betx)"
+  element ``mb.12'' by changing the example to:
+  ``table(twiss,mb.12[23],betx)''. Mind you that the old, but
+  little known, form: ``table(twiss,mb.12-\textgreater 23,betx)''
   continues to work. Lastly, if NNN exceeds the maximum
   occurrence number the return value is arbitrarily small.  
 
   \ttitem{TABLE(x,z,N\_row)} accesses the value of the named table
-    column  "z" at the "N\_row" number of rows of table "x" (row
+    column  ``z'' at the ``N\_row'' number of rows of table ``x'' (row
     numbers start at  1); example: table(twiss,betx,370) returns
-    the beta\_x at row number  "370" of the Twiss table
-    "twiss". The return value is zero if "N\_row"  is outside of
+    the beta\_x at row number  ``370'' of the Twiss table
+    ``twiss''. The return value is zero if ``N\_row''  is outside of
     the allowed range.
 
   \ttitem{TABINDEX(x,z,key)} identical to TABINDEX(x,z,1,key).  
 
-  \ttitem{TABINDEX(x,z,N\_row,key)} returns the index of the first occurrence of a string starting by "key" in table column "z" (must be a column of strings) starting at the "N\_row" number of rows of table "x"; example: tabindex(survey,name,102,bpm) returns the row number of the first element found starting from row 102 with a "name" beginning by "bpm" in the table "survey".
+  \ttitem{TABINDEX(x,z,N\_row,key)} returns the index of the first occurrence of a string starting by ``key'' in table column ``z'' (must be a column of strings) starting at the ``N\_row'' number of rows of table ``x''; example: tabindex(survey,name,102,bpm) returns the row number of the first element found starting from row 102 with a ``name'' beginning by ``bpm'' in the table ``survey''.
 
 \ttitem{TABSTRING(x,z,N\_row)} accesses value of the named table
- column "z" (must be a column of strings) at the "N\_row" number of rows of table "x";
+ column ``z'' (must be a column of strings) at the ``N\_row'' number of rows of table ``x'';
 example: tabstring(survey,name,10) returns the name of
-the 10th element of the survey table "survey". Row count starts at 1. The
+the 10th element of the survey table ``survey''. Row count starts at 1. The
 function can be used in any context where a string appears; in case
-there is no match, it returns "\_void\_".  
+there is no match, it returns ``\_void\_''.  
 \end{madlist}
 
-Note that "N\_row" has to be a number and not a  variable. However, the
+Note that ``N\_row'' has to be a number and not a  variable. However, the
 \hyperref[sec:macro]{Macro} facility in \madx allows
 the use of a variable instead.   
 
@@ -429,12 +429,12 @@ value, gettab.val, getidx.val ;
 Beware: 
 \begin{itemize}
 	\item  Unnamed Drifts are not included in the table name
-	database, so as to speed up the search for "real"
+	database, so as to speed up the search for ``real''
 	elements. Therefore, those  unnamed drifts cannot be
 	found. However, named drifts can be searched for.  
 	\item  Due to the importance of finding elements in the table
 	for a proper functioning of the \madx runs, the programs
-	throws a "fatal\_error" if an element cannot be found in the
+	throws a ``fatal\_error'' if an element cannot be found in the
 	table.   
 \end{itemize}
 
@@ -602,8 +602,8 @@ space \texttt{D1}.
 \label{subsec:expr_rnd}
 The definition of random machine imperfections requires evaluation of
 expressions containing random functions. These are evaluated like any
-other expression when the expression is used, i.e. only once if a "="
-assignment refers to it, or every time if the assignment is ":="; this
+other expression when the expression is used, i.e. only once if a ``=''
+assignment refers to it, or every time if the assignment is ``:=''; this
 latter case is used by the error generation routines.  
 
 Example: 
@@ -685,40 +685,40 @@ The fifth format allows extraction of variables from existing tables, as specifi
 %\input{Introduction/wildcard}
 \section{Regular Expressions}
 \label{sec:regex}
-Some commands allow selection of items via "regular expression"
+Some commands allow selection of items via ``regular expression''
 strings. Such a pattern string \textbf{must} be enclosed in single or
 double quotes. \madx follows regexp (Unix regular expression patterns)
 for matching. The following features are implemented:  
 
-A "search string" below is the string containing the pattern, a "target
-string" is the string being searched for a possible match with the
+A ``search string'' below is the string containing the pattern, a ``target
+string'' is the string being searched for a possible match with the
 pattern. 
 
 \begin{madlist}
    \ttitem{"\textasciicircum"} at the start of the search string: Match
      following search string at the start of the target string;
      otherwise the search string can start anywhere in the target
-     string. To search for a  genuine "\textasciicircum" anywhere, use
-     "$\backslash$\textasciicircum".  
+     string. To search for a  genuine ``\textasciicircum'' anywhere, use
+     ``$\backslash$\textasciicircum''.  
    \ttitem{"\$"} at the end of the search string: Match preceding search
      string at the end of the target string; otherwise the search string
      can end anywhere in the target string. To search for a  genuine
-     "\$" anywhere, use "$\backslash$\$".
+     ``\$'' anywhere, use ``$\backslash$\$''.
    \ttitem{"."} stands for an arbitrary character; to search for a genuine
-     ".", use "$\backslash$."
+     ``.'', use ``$\backslash$.''
    \ttitem{"[xyz]"} stands for one character belonging to the string
-     contained in brackets (example: "[abc]" means one of a, b, c).  
+     contained in brackets (example: ``[abc]'' means one of a, b, c).  
    \ttitem{"[a-ex-z]"} stands for ranges of characters (example:
-     "[a-zA-Z]" means any letter).  
-   \ttitem{"[\textasciicircum xyz]"} (i.e. a "\textasciicircum" as first
+     ``[a-zA-Z]'' means any letter).  
+   \ttitem{"[\textasciicircum xyz]"} (i.e. a ``\textasciicircum'' as first
      character in a square bracket) stands for exclusion of all
-     characters in the list, i.e. "[\textasciicircum a-z]" means "any
-     character but a lower case letter". 
+     characters in the list, i.e. ``[\textasciicircum a-z]'' means ``any
+     character but a lower case letter''. 
    \ttitem{"*"} allows zero or more repetitions of the preceding
      character, either specified directly, or from a list. (examples:
-     "a*" means zero or more occurrences of "a",  "[A-Z]*" means zero or
+     ``a*'' means zero or more occurrences of ``a'',  ``[A-Z]*'' means zero or
      more upper-case letters).  
-   \ttitem{"$\backslash$c"}  (e.g. "$\backslash$.") removes the special
+   \ttitem{"$\backslash$c"}  (e.g. ``$\backslash$.'') removes the special
      meaning of character c.  
 \end{madlist}
 
@@ -732,11 +732,11 @@ SELECT, FLAG=twiss, PATTERN="\textasciicircum k.*qd.*$\backslash$.r1\$" ;
 }
  
 The first command selects all elements whose names have exactly three
-characters and begin with the letter "D". The second command selects
-elements beginning with the letter "K", containing the string "QD", and
-ending with the string ".R1". The two occurrences of ".*" each stand for
+characters and begin with the letter ``D''. The second command selects
+elements beginning with the letter ``K'', containing the string ``QD'', and
+ending with the string ``.R1''. The two occurrences of ``.*'' each stand for
 an arbitrary number (including zero) of any character, and the
-occurrence "$\backslash$." stands for a literal period.  
+occurrence ``$\backslash$.'' stands for a literal period.  
 
 
 %%\title{Parameters}
